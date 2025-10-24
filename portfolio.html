@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shehraz | Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      scroll-behavior: smooth;
+      color: #222;
+      background: #f8f9fa;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #007bff;
+      color: #fff;
+      padding: 15px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar .logo {
+      font-size: 1.5em;
+      animation: fadeIn 1.5s;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #ffe066;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.8em;
+      cursor: pointer;
+    }
+
+    /* Home Section */
+    .home-section {
+      height: 90vh;
+      background: linear-gradient(120deg, #007bff, #00d4ff);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-direction: column;
+      padding: 0 10px;
+    }
+
+    .home-section h2 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    .home-section span {
+      color: #ffe066;
+    }
+
+    .home-section .btn {
+      background: #fff;
+      color: #007bff;
+      padding: 10px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: 0.3s;
+      font-weight: bold;
+    }
+
+    .home-section .btn:hover {
+      background: #ffe066;
+    }
+
+    /* Sections */
+    .about-section, .skills-section, .projects-section, .contact-section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .about-section p {
+      max-width: 700px;
+      margin: 10px auto;
+      line-height: 1.6;
+    }
+
+    /* Skills */
+    .skills-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .skill {
+      background: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      transition: transform 0.3s;
+    }
+
+    .skill:hover {
+      transform: scale(1.1);
+    }
+
+    /* Projects */
+    .projects-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .project-card {
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      border-radius: 10px;
+      width: 300px;
+      transition: transform 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-card img {
+      width: 100%;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .project-card h3 {
+      margin: 10px 0;
+    }
+
+    .project-card p {
+      padding: 0 15px 15px;
+      font-size: 0.9em;
+    }
+
+    /* Contact */
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      width: 90%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .btn {
+      background: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+
+    .btn:hover {
+      background: #0056b3;
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: none;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #007bff;
+        width: 100%;
+        text-align: center;
+        padding-bottom: 10px;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      .nav-links a {
+        display: block;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">Riwan Safdar</h1>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="menu-toggle" id="menuToggle">&#9776;</div>
+    </nav>
+  </header>
+
+  <section id="home" class="home-section">
+    <h2>Hello, I'm <span>Rizwan Safdar</span></h2>
+    <p>A passionate learner and future developer!</p>
+    <a href="#projects" class="btn">View My Work</a>
+  </section>
+
+  <section id="about" class="about-section">
+    <h2>About Me</h2>
+    <p>I’m a student at COMSATS University, currently learning web technologies and software development. I love coding, Jiu-Jitsu, and exploring new tech ideas.</p>
+  </section>
+
+  <section id="skills" class="skills-section">
+    <h2>Skills</h2>
+    <div class="skills-container">
+      <div class="skill">HTML5</div>
+      <div class="skill">CSS3</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">C#</div>
+      <div class="skill">Python</div>
+    </div>
+  </section>
+
+  <section id="projects" class="projects-section">
+    <h2>Projects</h2>
+    <div class="projects-container">
+      <div class="project-card">
+        <img src="https://via.placeholder.com/300x200" alt="Project 1">
+        <h3>Hotel Room Booking System</h3>
+        <p>A C# WPF-based project for room booking and management.</p>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/300x200" alt="Project 2">
+        <h3>Portfolio Website</h3>
+        <p>My personal responsive website with animations and interactivity.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <h2>Contact Me</h2>
+    <form id="contactForm">
+      <input type="text" id="name" placeholder="Your Name">
+      <input type="email" id="email" placeholder="Your Email">
+      <textarea id="message" placeholder="Your Message"></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 Shehraz | All Rights Reserved</p>
+    <button id="backToTop" class="back-to-top">↑</button>
+  </footer>
+
+  <script>
+    // Toggle Navigation for Mobile
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+      navLinks.style.flexDirection = 'column';
+    });
+
+    // Back to Top Button
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Form Validation
+    document.getElementById('contactForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const msg = document.getElementById('message').value.trim();
+
+      if (!name || !email || !msg) {
+        alert("Please fill all fields before submitting.");
+      } else {
+        alert("Message sent successfully!");
+      }
+    });
+  </script>
+</body>
+</html>
